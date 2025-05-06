@@ -14,7 +14,6 @@ import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-// import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -32,24 +31,6 @@ public class GoogleService {
 
     private static final String APPLICATION_NAME = "Template Manager";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-
-    // private Credential getCredentials() throws IOException, GeneralSecurityException {
-    //     InputStream in = new ClassPathResource("credentials.json").getInputStream();
-    //     ClassPathResource resource = new ClassPathResource("credentials.json");
-    //     System.out.println("Exists: " + resource.exists());
-    //     System.out.println("Filename: " + resource.getFilename());
-
-    //     GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-
-    //     GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-    //             GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets,
-    //             List.of(DriveScopes.DRIVE, SheetsScopes.SPREADSHEETS))
-    //             .setDataStoreFactory(new FileDataStoreFactory(new File("tokens")))
-    //             .setAccessType("offline")
-    //             .build();
-
-    //     return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
-    // }
 
     private Credential getCredentials() throws IOException, GeneralSecurityException {
         // Load the credentials.json file

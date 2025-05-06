@@ -9,28 +9,6 @@ import com.example.Skytec.Repository.TemplateRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
-// @Service
-// public class TemplateService {
-
-//     @Autowired
-//     private TemplateRepository repository;
-
-//     @Autowired
-//     private GoogleService googleService;
-
-//     public TemplateModel createTemplate(TemplateRequest request) throws Exception {
-//         String sheetId = googleService.createGoogleSheet(request.getName());
-//         String sheetUrl = googleService.getSheetUrl(sheetId);
-
-//         TemplateModel model = new TemplateModel();
-//         model.setName(request.getName());
-//         model.setSheetId(sheetId);
-//         model.setSheetUrl(sheetUrl);
-
-//         return repository.save(model);
-//     }
-// }
-
 @Slf4j
 @Service
 public class TemplateService {

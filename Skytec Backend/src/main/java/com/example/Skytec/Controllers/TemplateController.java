@@ -29,19 +29,9 @@ public class TemplateController {
     @Autowired
     private TemplateRepository templateRepository;
 
-    // @PostMapping("/create-template-sheet")
-    // public ResponseEntity<TemplateModel> createTemplate(@RequestBody TemplateRequest request) {
-    //     try {
-    //         TemplateModel model = templateService.createTemplate(request);
-    //         return ResponseEntity.ok(model);
-    //     } catch (Exception e) {
-    //         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-    //     }
-    // }
 
     @PostMapping("/create-template-sheet")
     public ResponseEntity<TemplateModel> createTemplate(@RequestBody TemplateRequest request) {
-        // Log the incoming request body
         log.info("Received request to create template: {}", request);
         System.out.println(request);
 

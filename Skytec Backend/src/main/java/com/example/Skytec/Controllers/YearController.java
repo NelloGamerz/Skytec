@@ -20,11 +20,6 @@ public class YearController {
     @Autowired
     private YearfolderRepository yearfolderRepository;
 
-    // @GetMapping
-    // public List<YearFolderModel> getAllFolders(){
-    // return yearfolderRepository.findAll();
-    // }
-
     @GetMapping("/years")
     public Map<String, List<YearFolderModel>> getAllFolders() {
         List<YearFolderModel> folders = yearfolderRepository.findAll();
