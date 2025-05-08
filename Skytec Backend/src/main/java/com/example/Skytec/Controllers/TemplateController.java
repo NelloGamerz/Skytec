@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Skytec.DTO.TemplateRequest;
 import com.example.Skytec.Models.TemplateModel;
-import com.example.Skytec.Repository.TemplateRepository;
 import com.example.Skytec.Service.TemplateService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,10 +24,6 @@ public class TemplateController {
 
     @Autowired
     private TemplateService templateService;
-
-    @Autowired
-    private TemplateRepository templateRepository;
-
 
     @PostMapping("/create-template-sheet")
     public ResponseEntity<TemplateModel> createTemplate(@RequestBody TemplateRequest request) {
@@ -46,6 +41,6 @@ public class TemplateController {
 
     @GetMapping("/templates")
     public List<TemplateModel> getAllTemplates() {
-        return templateRepository.findAll();
+        return templateService.getAllTemplates();
     }
 }

@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Skytec.DTO.FolderRequest;
 import com.example.Skytec.Models.BillsFolderModel;
-import com.example.Skytec.Repository.BillsFolderRepository;
+import com.example.Skytec.Service.BillFolderService;
 
 @RestController
 @RequestMapping("/api")
 public class BillFolderController {
+
     @Autowired
-    private BillsFolderRepository folderRepository;
+    private BillFolderService billFolderService;
 
     @GetMapping("getFoldersByYear")
     public List<BillsFolderModel> getFoldersByYear(@RequestParam("folderName") String folderName) {
-        return folderRepository.findByYearFolderName(folderName);
+        return billFolderService.getFolderByYear(folderName);
     }
 
     @PostMapping("/addFolder")
     public BillsFolderModel createFolder(@RequestBody FolderRequest request) {
-        BillsFolderModel folder = new BillsFolderModel(null, request.getYearFolderName(), request.getFolderName());
-        return folderRepository.save(folder);
+        return billFolderService.createFolder(request);
     }
 }

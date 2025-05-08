@@ -1,5 +1,7 @@
 package com.example.Skytec.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class TemplateService {
 
 
     @Autowired
-    private TemplateRepository repository;
+    private TemplateRepository TemplateRepository;
 
     @Autowired
     private GoogleService googleService;
@@ -35,13 +37,17 @@ public class TemplateService {
             model.setSheetId(sheetId);
             model.setSheetUrl(sheetUrl);
 
-            TemplateModel savedModel = repository.save(model);
+            TemplateModel savedModel = TemplateRepository.save(model);
             log.info("Template saved to repository with ID: {}", savedModel.getId());
 
             return savedModel;
         } catch (Exception e) {
             log.error("Failed to create template '{}': {}", request.getName(), e.getMessage(), e);
-            throw e; // Re-throw so calling controller can handle it
+            throw e;
         }
+    }
+
+    public List<TemplateModel> getAllTemplates(){
+        return TemplateRepository.findAll();
     }
 }

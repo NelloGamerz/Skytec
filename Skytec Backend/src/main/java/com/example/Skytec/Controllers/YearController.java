@@ -11,24 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Skytec.Models.YearFolderModel;
-import com.example.Skytec.Repository.YearfolderRepository;
+import com.example.Skytec.Service.YearService;
 
 @RestController
 @RequestMapping("/api")
 public class YearController {
 
     @Autowired
-    private YearfolderRepository yearfolderRepository;
+    private YearService yearService;
 
     @GetMapping("/years")
     public Map<String, List<YearFolderModel>> getAllFolders() {
-        List<YearFolderModel> folders = yearfolderRepository.findAll();
-        return Map.of("data", folders);
+        return yearService.getAllFolders();
     }
 
     @PostMapping("/years")
     public YearFolderModel createFolder(@RequestBody YearFolderModel folder) {
-        return yearfolderRepository.save(folder);
+        return yearService.createFolder(folder);
     }
 
     
