@@ -1,9 +1,0 @@
-spring:
-    application:
-        name: Skytec
-
-    profiles:
-        active: dev
-
-
-
