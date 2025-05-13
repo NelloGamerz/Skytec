@@ -1,6 +1,7 @@
 package com.example.Skytec.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +42,10 @@ public class ItemController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable String id) {
         return itemService.deleteItem(id);
+    }
+
+    @GetMapping("/{itemName}")
+    public Optional<ItemModel> getItemByName(@PathVariable String itemName) {
+        return itemService.getItemByName(itemName);
     }
 }

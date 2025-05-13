@@ -1,6 +1,7 @@
 package com.example.Skytec.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,6 +47,10 @@ public class ItemService {
                     return new ResponseEntity<>(saved, HttpStatus.OK);
                 })
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    public Optional<ItemModel> getItemByName(String itemName) {
+        return itemRepository.findByItemName(itemName);
     }
 
 }

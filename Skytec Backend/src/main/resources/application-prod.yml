@@ -14,3 +14,8 @@ logging:
 
 frontend:
   url: ${FRONTEND_URL}
+
+google:
+  script:
+    webapp:
+      url: ${WEBAPP_URL}
